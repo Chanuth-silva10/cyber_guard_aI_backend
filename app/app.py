@@ -14,7 +14,7 @@ app = FastAPI(
 )
 
 origins = [
-    "http://localhost:3000",  # React frontend URL
+    "http://localhost:3000", 
 ]
 
 app.add_middleware(
@@ -31,7 +31,7 @@ async def app_init():
         initialize crucial application services
     """
     
-    db_client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING).fodoist
+    db_client = AsyncIOMotorClient(settings.MONGO_CONNECTION_STRING).cyberguardai
     
     await init_beanie(
         database=db_client,
