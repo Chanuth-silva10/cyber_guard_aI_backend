@@ -13,19 +13,17 @@ app = FastAPI(
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-print(f"CORS Origins: {settings.BACKEND_CORS_ORIGINS}")
+origins = [
+    "http://localhost:3000",  # React frontend URL
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"], 
 )
-
-@app.get("/")
-def read_root():
-    return {"message": "Hello World"}
 
 @app.on_event("startup")
 async def app_init():
