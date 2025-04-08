@@ -15,6 +15,7 @@ app = FastAPI(
 
 origins = [
     "http://localhost:3000", 
+    "https://cyber-guard-ai-app.netlify.app",
 ]
 
 app.add_middleware(
